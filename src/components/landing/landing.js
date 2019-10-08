@@ -1,5 +1,5 @@
 import React from 'react';
-import { SignIn } from '../../views/signin/signIn';
+import SignInPage from '../../views/signin/signIn';
 
 const Landing = () => (
   <section className="top-sec">
@@ -19,7 +19,7 @@ const Landing = () => (
       </span>
 
       <div className="pull-right csd">
-        <SignIn id="bxx" />
+        <SignInPage id="bxx" />
       </div>
     </span>
   </section>

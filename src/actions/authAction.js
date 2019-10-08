@@ -39,6 +39,24 @@ export const register = user => async (dispatch) => {
   }
 };
 
+export const login = user => async (dispatch) => {
+  try {
+    
+    dispatch(loading());
+    const response = await axios.post(`${url}/auth/login`, user);
+    if (response) {
+      const userDetails = response.data.data[0];
+      const token = userDetails.userToken;
+
+      localStorage.setItem('token', token);
+      dispatch(signupSuccess(userDetails));
+    }
+  } catch (error) {
+    const errorResponse = errorHandler(error);console.log(errorResponse)
+    dispatch(signupFailure(errorResponse.response));
+  }
+};
+
 export const logoutUser = () => (dispatch) => {
   // Remove token from local storage
   localStorage.removeItem('token');

@@ -6,7 +6,7 @@ export const errorHandler = (err) => {
     } else if (err.response.status === 409) {
       error.response = 'The email already exist';
     } else if (err.response.status === 401 || err.response.status === 403) {
-      error.response = err.response.data.errors;
+      error.response = err.response.data.error;
     } else if (err.response.status === 500) {
       error.response = 'Something happened, please check your connection and try again';
     } else {

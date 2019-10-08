@@ -20,10 +20,12 @@ describe('Signup component', () => {
     wrapper = setUp();
     sinon.spy(SignUp.prototype, 'onChange');
     sinon.spy(SignUp.prototype, 'onSubmit');
+    sinon.spy(SignUp.prototype, 'registerForm');
   });
   afterEach(() => {
     SignUp.prototype.onChange.restore();
     SignUp.prototype.onSubmit.restore();
+    SignUp.prototype.registerForm.restore();
   });
   it('ensure onchange is called for firstname', (done) => {
     const event = { target: { name: 'firstName', value: 'spam' } };
@@ -96,5 +98,16 @@ describe('Signup component', () => {
     submitForm.simulate('submit', fakeEvent);
     expect(SignUp.prototype.onSubmit.called).toBe(true);
     done();
+  });
+  it('should call the registerForm method', () => {
+    // const FormSpy = jest.spyOn(component.instance(), 'showForm');
+    const form = wrapper
+      .find('SignUpForm')
+      .shallow()
+      .find('.sign-form');
+    expect(form.length).toBe(1);
+    form.simulate('click');
+    wrapper.instance().registerForm();
+    expect(SignUp.prototype.registerForm.called).toBe(true);
   });
 });

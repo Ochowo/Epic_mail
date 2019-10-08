@@ -1,18 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { HomePage } from '../../views/home/home';
-import { mockStore } from '../../../mocks/mockConfig';
+import Home from '../../views/home/home';
 
-const store = mockStore({ auth: {} });
-const props = {
-  registerAction: () => {},
-  auth: {
-    isAuthenticated: true,
-  },
-  errors: {},
-};
 const setUp = () => {
-  const component = shallow(<HomePage {...props} store={store} />);
+  const component = shallow(<Home />);
   return component;
 };
 describe('Home component', () => {
