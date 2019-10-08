@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import React from 'react';
-import { withRouter, Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -56,7 +56,7 @@ class SignUp extends React.Component {
 
   render() {
     const { auth } = this.props;
-    const { isAuthenticated, error } = auth;
+    const { error } = auth;
     const { signup, firstName, lastName, userName, email, password, confirmPassword } = this.state;
     const newUser = {
       firstName,
@@ -74,21 +74,18 @@ class SignUp extends React.Component {
     } else {
       authError = error;
     }
-    if (!isAuthenticated) {
-      if (signup) {
-        return (
-          <SignUpForm
-            onSubmit={e => this.onSubmit(e)}
-            onChange={e => this.onChange(e)}
-            valError={valError}
-            authError={authError}
-            refreshPage={() => this.registerForm()}
-          />
-        );
-      }
-      return <SignIn />;
+    if (signup) {
+      return (
+        <SignUpForm
+          onSubmit={e => this.onSubmit(e)}
+          onChange={e => this.onChange(e)}
+          valError={valError}
+          authError={authError}
+          refreshPage={() => this.registerForm()}
+        />
+      );
     }
-    return <Redirect to="/inbox" />;
+    return <SignIn />;
   }
 }
 SignUp.propTypes = {
