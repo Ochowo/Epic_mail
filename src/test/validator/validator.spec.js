@@ -1,6 +1,8 @@
 import validateSignupInput from '../../validator/validateSignup';
+import validateSigninInput from '../../validator/validateSigin';
 
 describe('validateSignUpInput', () => {
+
   const state = {
     email: '',
     confirmPassword: '',
@@ -50,5 +52,21 @@ describe('validateSignUpInput', () => {
   });
   it('checks if password is less than 3', () => {
     expect(validateSignupInput(state).validationErrors.password).toBe('Password should contain a min of 8 characters');
+  });
+});
+describe('validateSigninInput', () => {
+  const wrongState = {
+    email: 'email',
+    password: '',
+    confirmPassword: '',
+    userName: '',
+    firstName: ' klek ddm,df/./',
+    lastName: ',jgj/',
+  };
+  it('checks if email is empty', () => {
+    expect(validateSigninInput({}).errors.email).toBe('Email field is empty');
+  });
+  it('checks if email is invalid', () => {
+    expect(validateSigninInput(wrongState).errors.email).toBe('You have entered an invalid email');
   });
 });

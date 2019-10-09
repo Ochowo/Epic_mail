@@ -41,18 +41,16 @@ export const register = user => async (dispatch) => {
 
 export const login = user => async (dispatch) => {
   try {
-    
     dispatch(loading());
     const response = await axios.post(`${url}/auth/login`, user);
     if (response) {
       const userDetails = response.data.data[0];
-      const token = userDetails.userToken;
-
+      const { token } = userDetails;
       localStorage.setItem('token', token);
       dispatch(signupSuccess(userDetails));
     }
   } catch (error) {
-    const errorResponse = errorHandler(error);console.log(errorResponse)
+    const errorResponse = errorHandler(error);
     dispatch(signupFailure(errorResponse.response));
   }
 };

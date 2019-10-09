@@ -33,16 +33,12 @@ class SignIn extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const { firstName, lastName, email, password, confirmPassword } = this.state;
-    console.log(this.props);
+    const { email, password } = this.state;
     const { registerAction, history } = this.props;
 
     const user = {
-      firstName,
-      lastName,
       email,
       password,
-      confirmPassword,
     };
     registerAction(user, history);
   }
