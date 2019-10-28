@@ -1,5 +1,5 @@
 import messageReducer from '../../reducers/messageReducer';
-import { initMessages, createMessages, messageFailure, messageSent } from '../../actions/messageAction';
+import { initMessages, createMessages, messageFailure, messageSent, getMessages } from '../../actions/messageAction';
 
 let action;
 let newState;
@@ -30,6 +30,13 @@ describe('Messages Reducer', () => {
   });
   it('should handle action type COMPOSE_MESSAGE', () => {
     action = createMessages(data);
+    newState = messageReducer(state, action);
+    expect(newState).not.toEqual(state, action);
+    expect(newState.message).not.toEqual(undefined);
+    expect(newState.isLoading).toEqual(false);
+  });
+  it('should handle action type GET_MESSAGES', () => {
+    action = getMessages(data);
     newState = messageReducer(state, action);
     expect(newState).not.toEqual(state, action);
     expect(newState.message).not.toEqual(undefined);

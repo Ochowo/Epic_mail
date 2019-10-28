@@ -6,6 +6,7 @@ import {
   MESSAGE_SENT,
   END_COMPOSE_MESSAGE,
   CLOSE_MODAL,
+  GET_MESSAGES,
 } from './actionTypes';
 import { url } from '../utils/url';
 import { errorHandler } from '../utils/errorHandler';
@@ -21,6 +22,11 @@ export const createMessages = message => ({
   payload: message,
 });
 
+export const getMessages = message => ({
+  type: GET_MESSAGES,
+  payload: message,
+});
+
 export const messageFailure = error => ({
   type: MESSAGE_FAILURE,
   payload: error,
@@ -32,13 +38,14 @@ export const messageSent = () => ({
 export const closeModal = () => ({
   type: CLOSE_MODAL,
 });
+
+const config = {
+  headers: {
+    'x-access-token': token,
+  },
+};
 // eslint-disable-next-line import/prefer-default-export
 export const postMessages = data => async (dispatch) => {
-  const config = {
-    headers: {
-      token,
-    },
-  };
   try {
     dispatch(initMessages());
     const message = await axios.post(
@@ -51,6 +58,17 @@ export const postMessages = data => async (dispatch) => {
       dispatch(messageSent());
       dispatch({ type: END_COMPOSE_MESSAGE });
     }
+  } catch (error) {
+    const errorResponse = errorHandler(error);
+    dispatch(messageFailure(errorResponse.response));
+  }
+};
+
+export const fetchMessages = () => async (dispatch) => {
+  try {
+    dispatch(initMessages());
+    const message = await axios.get(`${url}/messages`,);
+    dispatch(getMessages(message.data.data));
   } catch (error) {
     const errorResponse = errorHandler(error);
     dispatch(messageFailure(errorResponse.response));

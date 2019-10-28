@@ -9,7 +9,7 @@ const historyMock = { push: jest.fn() };
 const props = {
   message: {},
   errors: {},
-  MessageAction: () => {},
+  messageAction: () => {},
 };
 const setUp = () => {
   const component = shallow(<ComposeMessage {...props} history={historyMock} />);
@@ -71,6 +71,17 @@ describe('Compose message component', () => {
     expect(form.length).toBe(1);
     form.simulate('change', event);
     expect(ComposeMessage.prototype.onChange.called).toBe(true);
+    done();
+  });
+
+  it('should handle onSubmit', (done) => {
+    const fakeEvent = { preventDefault: () => ({}) };
+    const form = component.find('#box25');
+    const btn = component.find('#newMessage');
+    expect(form.length).toBe(1);
+    expect(btn.length).toBe(1);
+    form.simulate('submit', fakeEvent);
+    expect(ComposeMessage.prototype.onSubmit.called).toBe(true);
     done();
   });
 });
