@@ -12,4 +12,6 @@ export const MESSAGE_NOT_SENT = 'MESSAGE_NOT_SENT';
 export const END_COMPOSE_MESSAGE = 'END_COMPOSE_MESSAGE';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
 
+export const GET_MESSAGES = 'GET_MESSAGES';
+
 export const LOGOUT = 'USERS_LOGOUT';

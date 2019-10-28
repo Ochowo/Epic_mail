@@ -5,6 +5,7 @@ import {
   END_COMPOSE_MESSAGE,
   CLOSE_MODAL,
   MESSAGE_FAILURE,
+  GET_MESSAGES,
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -28,6 +29,11 @@ export default function (state = initialState, action) {
         isSent: true,
         error: null,
         message: [],
+      });
+    case GET_MESSAGES:
+      return Object.assign({}, state, {
+        message: action.payload,
+        isLoading: false,
       });
     case END_COMPOSE_MESSAGE:
       return {

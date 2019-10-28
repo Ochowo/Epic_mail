@@ -72,7 +72,7 @@ class Inbox extends React.Component {
               </div>
               <div className="righ-bo baz">
                 {' '}
-                <Compose close={this.closeModalHandler} />
+                <Compose closed={this.closeModalHandler} />
               </div>
             </div>
           </section>

@@ -5,9 +5,9 @@ import {
   INIT_MESSAGE,
   MESSAGE_SENT,
   END_COMPOSE_MESSAGE,
-  CLOSE_MODAL,
+  GET_MESSAGES,
 } from '../../actions/actionTypes';
-import { initMessages, createMessages, messageFailure, messageSent, postMessages } from '../../actions/messageAction';
+import { initMessages, createMessages, messageFailure, getMessages, messageSent, postMessages, fetchMessages } from '../../actions/messageAction';
 
 const store = mockStore({});
 const mockMsg = {
@@ -16,30 +16,49 @@ const mockMsg = {
   message: 'password',
 };
 
-const token = 'token';
+const inbox = {
+  email: 'haruna@gmail.com',
+  message: 'mmmm',
+  messageid: 99,
+  parentmessageid: null,
+  receiverid: 16,
+  ruserlastname: 'haruna',
+  rusername: 'ochowo',
+  senderid: 16,
+  sfirstname: 'ochowo',
+  slastname: 'haruna',
+  status: 'unread',
+  subject: 'nnn',
+};
 const history = { push: jest.fn() };
 
-describe('authActionTypes', () => {
+describe('messageActionTypes', () => {
   test('initMessage', () => {
     const msg = initMessages();
 
     expect(msg).toEqual({ type: INIT_MESSAGE });
   });
   test('createMessage', () => {
-    const auth = createMessages(mockMsg);
+    const msg = createMessages(mockMsg);
 
-    expect(auth).toEqual({ type: COMPOSE_MESSAGE, payload: mockMsg });
+    expect(msg).toEqual({ type: COMPOSE_MESSAGE, payload: mockMsg });
+  });
+
+  test('getMessages', () => {
+    const msg = getMessages(inbox);
+
+    expect(msg).toEqual({ type: GET_MESSAGES, payload: inbox });
   });
 
   test('messageFailure', () => {
-    const auth = messageFailure('error');
+    const msg = messageFailure('error');
 
-    expect(auth).toEqual({ type: MESSAGE_FAILURE, payload: 'error' });
+    expect(msg).toEqual({ type: MESSAGE_FAILURE, payload: 'error' });
   });
   test('messageSent', () => {
-    const auth = messageSent('error');
+    const msg = messageSent('error');
 
-    expect(auth).toEqual({ type: MESSAGE_SENT });
+    expect(msg).toEqual({ type: MESSAGE_SENT });
   });
 });
 describe('messageAction', () => {
@@ -71,5 +90,15 @@ describe('messageAction', () => {
       expect(actionTypes[0]).toEqual(INIT_MESSAGE);
       done();
     });
+  });
+  it('call get message action success', (done) => {
+    mock.onPost().replyOnce(200);
+    store
+      .dispatch(fetchMessages())
+      .then(() => store.getActions())
+      .then((actions) => {
+        expect(actions.length).toBe(8);
+      });
+    done();
   });
 });
