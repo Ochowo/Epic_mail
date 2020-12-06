@@ -1,0 +1,32 @@
+@import '../../../public/style/colors';
+@import '../../../public/style/variables';
+
+.top-sec{
+    color: $font_color_1;
+    background-image: url('bg.png');
+    height: 720px;
+    background-size: cover;
+    width: 100%;
+    margin: auto;
+    .container{
+        .pull-left{
+            width: 50%;
+            .pull-text{
+                font-size: 55px;
+                margin-top: 40%;
+                font-family: $font_family_1;
+                .wel{
+                    line-height: 1px;
+                }
+                .every{
+                    font-size: 30px;
+                }
+            }
+        }
+        .pull-right{
+            width: 50%;
+        }
+    }
+  
+    
+}

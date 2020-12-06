@@ -1,0 +1,11 @@
+@import '../../../public/style/colors';
+
+footer {
+    height: 30px;
+    background-color:$primary_bg_color;
+    color: $font_color_1;
+    padding: 5% 10%;
+    .footer-nav li {
+        display: inline-block;
+      }
+  }

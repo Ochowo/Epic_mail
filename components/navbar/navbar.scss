@@ -1,0 +1,79 @@
+@import '../../../public/style/colors';
+@mixin logo {
+    width: 15%;    
+}
+.header{
+    @include logo;
+    height: 70px;
+    height:70px;
+    padding: 20px 65px ;
+    width: 100%;
+    .lo {
+        padding: 0;
+        margin: 0;
+      }
+      .help {
+        float: right;
+        color: $font_color_2;
+      }
+}
+.header2 {
+    border-bottom: 1px solid #ededed;
+}
+
+.header4 {
+    height: 70px;
+    padding: 0 40px ;
+    width: 100%;
+    .flexboxx {
+        @include logo;
+        color: #707070;
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        .search-container {
+            float: right;
+            font-size: 17px;
+            cursor: pointer;
+            width: 50%;
+            margin-top:1.2%;
+            margin-left: 2%;
+            .bor {
+                border: 1px solid #bababa;
+                width: 80%;
+                padding: 1% 1%;
+            }
+            .top-subb {
+                background-color: #fff;
+                border: 1px solid #bababa;
+                padding: 1% 0;
+                border-left: none;
+                padding-right: 1.5%;
+                .top-sub {
+                    color: #ededed;
+                    font-size: 14px;
+                    font-weight: bold;   
+                }
+            }
+        }
+       
+        .bak {
+            width: 12%;
+            margin-top: 1.5%;
+            }
+      .userp {
+        width: 35%;
+        text-align: right;
+        margin-top:1.2% 
+        
+      }
+      .logout {
+        width: 25%;
+        background-color: #0067fc;
+        border-radius: 4px;
+        margin-top: 0.7%;
+        color: #fff;
+        height: 40px;
+      }
+}
+}

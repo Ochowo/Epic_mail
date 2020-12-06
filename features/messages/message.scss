@@ -1,0 +1,165 @@
+.container2 {
+ padding: 0;
+}  
+.lef-bo {
+  width: 16%;
+  padding-left: 2%;
+}
+.em-bnn {
+      margin-bottom: 12%;
+}
+.em-bnn li {
+      margin-top: 10%;
+      margin-left: 5%;
+}
+.righ-bo {
+    width: 84%;
+    border-left: 1px solid #ededed;
+    height: 600px;
+}
+.center-boxxx {
+  margin: auto;
+
+}
+.boxx {
+  margin: 10% auto 5% auto;
+}
+
+.unread{
+  font-weight:  bold;
+  font-size: 16px;
+}
+ 
+.box {
+  width: 350px;
+  background-color: #fff;
+  margin-top: 20%;
+  margin-left: 17%;
+  border-radius: 7px;
+  text-align: center;
+  padding: 5%;
+  color: #707070;
+  box-shadow: 5px 10px 28px 0.1px #b3b1b1;
+}
+.boxx {
+  margin: 2% auto 5% auto;
+  width: 600px;
+  
+}
+.closed,
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.closed:hover,
+.closed:focus .close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.txt-se {
+  margin-top: 20px;
+  width:80%;
+  padding:2%;
+  
+}
+.logo-box {
+  height: 40px;
+}
+.boxx-textt {
+  padding: 2%;
+}
+.textt {
+  border-bottom: none;
+}
+.newt {
+  padding-top: 0;
+  padding-bottom: 2%;
+  border-bottom: 1px solid rgb(169, 169, 169);
+  width: 80%;
+}
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #7ac142;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 10% auto;
+  box-shadow: inset 0px 0px 0px #7ac142;
+  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+.tblll{
+  width:100%;
+}
+.tr-height{
+  height:320px;
+}
+.err-rw {
+  text-align:center;
+ margin-top: 10%;
+}
+.overlay {
+  position: fixed;
+  display: block; 
+  overflow: auto; 
+  width: 100%; 
+  height: 100%; 
+  top: 0; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); 
+  z-index: 999; 
+  cursor: pointer;
+}
+.ri-wi {
+width: 70%;
+}
+.le-wi{
+  width: 15%;
+}
+.mi-wi{
+  width: 15%;
+}
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+table tr td{
+  padding: 1%;
+}
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px #7ac142;
+  }
+}
