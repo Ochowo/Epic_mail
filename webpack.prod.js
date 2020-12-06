@@ -3,6 +3,7 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 
 const uglifyPlugin = new UglifyJsPlugin({
+  exclude: /node_modules/,
   cache: true,
   parallel: true,
   sourceMap: true,
