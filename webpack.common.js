@@ -18,7 +18,7 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.(js)$/, use: [{loader: 'babel-loader',query: {presets: ['es2015']}} ]},
+      { test: /\.(js)$/, use: [{loader: 'babel-loader',query: {presets: ["@babel/preset-env"]}} ]},
       { test: /\.css$/, use: ['style-loader', 'css-loader'] },
       {
         test: /\.s(a|c)ss$/,
