@@ -1,0 +1,80 @@
+@import '../../../public/style/colors';
+@import '../../../public/style/variables';
+
+.box {
+  width: 350px;
+  background-color: $font_color_1;
+  margin-top: 20%;
+  margin-left: 17%;
+  border-radius: 7px;
+  text-align: center;
+  padding: 5%;
+  color:$font_color_2;
+  box-shadow: 5px 10px 28px 0.1px #b3b1b1;
+ 
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-size: 14px;
+    color: $placeholder_color;
+  }
+  
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    font-size: 14px;
+    color: $placeholder_color;
+  }
+  
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    font-size: 14px;
+    color: $placeholder_color;
+  }
+
+}
+input {
+  border: none;
+}
+.fname,
+.lname,
+.email,
+.number,
+.password {
+  margin: 3%;
+  border-bottom: 0.5px solid #707070;
+  width: 90%;
+  padding: 2%;
+}
+.name3,
+.name2 {
+  padding-top: 4%;
+}
+.create,
+.submit2,
+.logbtn {
+  width: 90%;
+  background-color: #0067fc;
+  border-radius: 4px;
+  padding: 5% 0;
+  margin-top: 15%;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+.acct {
+  float: left;
+  font-size: 12px;
+  margin-left: 15px;
+  margin-top: 2%;
+}
+.create {
+  background-color: transparent;
+  color: #0067fc;
+  border: 2px solid #0067fc;
+}
+.top-input {
+  margin-top: 10%;
+}
+.invalid-fb {
+  color: red;
+  font-size: 12px;
+}

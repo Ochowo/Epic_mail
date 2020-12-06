@@ -1,0 +1,52 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.drp-ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 5%;
+  top:45px;
+  right:0px;
+  width: 300px;
+  background-color: white;
+  position: absolute;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  text-align:center;
+}
+.drp-ul li a {
+  color: #000;
+  text-decoration: none;
+}
+.dripp {
+  padding: 50px 16px;
+}
+.drp-ul li:last-child {
+  border-bottom: none;
+}
+.drp-ul li:hover {
+  background-color: #e5e5e5;
+  color: white;
+}
+.buttonn{
+  background-color: transparent;
+    color: #bababa;
+    border: 2px solid #bababa;
+  padding:6px 10px;
+  border-radius:5px;
+  font-weight:bold;
+  width:150px;
+  text-align: left;;
+ 
+}
+.buttonn:before{
+  content:"";
+  position:absolute;
+  width:0px;
+  height:0px;
+  border: 10px solid;
+  border-color: #bababa transparent transparent transparent;
+  right:6px;
+  top:12px;
+}
